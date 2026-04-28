@@ -6,46 +6,36 @@ public class A {
     public static void main(String[] args) {
 //
 
-//        int[] nums = {1, 2, 2};
-//        int[] nums = {2, 2, -1, 3, -2, 2, 1, 1, 1, 0, -1};
-//        System.out.println(minimumPairRemovalI(nums));
+        int[] nums = {1, 2, 4, 2, 3, 2};
 
-        int n = 3;
-        int[][] buildings = {{1, 2}, {2, 2}, {3, 2}, {2, 1}, {2, 3}};
-        System.out.println(minimumPairRemoval(n, buildings));
+        List<Integer> ans = findValidElements(nums);
+        for (Integer i : ans)
+            System.out.print(i + " ");
+        System.out.println();
     }
 
-    static int minimumPairRemoval(int n, int[][] buildings) {
-        // Maps to track min/max in each row and column
-        Map<Integer, Integer> rowMinY = new HashMap<>(), rowMaxY = new HashMap<>();
-        Map<Integer, Integer> colMinX = new HashMap<>(), colMaxX = new HashMap<>();
+    static List<Integer> findValidElements(int[] nums) {
+        int n = nums.length;
+        int[] prefix = new int[n];
+        int[] suffix = new int[n];
 
-        // Initialize with extreme values
-        for (int[] b : buildings) {
-            int x = b[0], y = b[1];
+        prefix[0] = nums[0];
+        for (int i = 1; i < n; i++)
+            prefix[i] = Math.max(prefix[i - 1], nums[i]);
 
-            rowMinY.put(x, Math.min(rowMinY.getOrDefault(x, Integer.MAX_VALUE), y));
-            rowMaxY.put(x, Math.max(rowMaxY.getOrDefault(x, Integer.MIN_VALUE), y));
+        suffix[n - 1] = nums[n - 1];
+        for (int i = n - 2; i >= 0; i--)
+            suffix[i] = Math.max(suffix[i + 1], nums[i]);
 
-            colMinX.put(y, Math.min(colMinX.getOrDefault(y, Integer.MAX_VALUE), x));
-            colMaxX.put(y, Math.max(colMaxX.getOrDefault(y, Integer.MIN_VALUE), x));
+        List<Integer> res = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            if (i == 0 || i == n - 1)
+                res.add(nums[i]);
+            else if (nums[i] > prefix[i - 1] || nums[i] > suffix[i + 1])
+                res.add(nums[i]);
         }
 
-        int coveredCount = 0;
-        // Check each building
-        for (int[] b : buildings) {
-            int x = b[0], y = b[1];
-
-            boolean hasLeft = rowMinY.get(x) < y;
-            boolean hasRight = rowMaxY.get(x) > y;
-            boolean hasAbove = colMinX.get(y) < x;
-            boolean hasBelow = colMaxX.get(y) > x;
-
-            if (hasLeft && hasRight && hasAbove && hasBelow) {
-                coveredCount++;
-            }
-        }
-
-        return coveredCount;
+        return res;
     }
 }

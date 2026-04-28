@@ -3,83 +3,53 @@ package leetcodeContest;
 import java.util.*;
 
 public class B {
-    private int memoryLimit;
-    private Queue<Packet> q;
-    private Set<String> pktSet;
-    private Map<Integer, TreeMap<Integer, Integer>> destMap;
 
-    public B(int memoryLimit) {
-        this.memoryLimit = memoryLimit;
-        this.q = new LinkedList<>();
-        this.pktSet = new HashSet<>();
-        this.destMap = new HashMap<>();
+    public static void main(String[] args) {
+        String s = "leetcode";
+        System.out.println(sortVowels(s));
     }
 
-    boolean addPacket(int source, int destination, int timestamp) {
-        String key = source + "-" + destination + "-" + timestamp;
-        if (pktSet.contains(key)) return false;
-        if (q.size() == memoryLimit) {
-            Packet removed = q.poll();
-            String removedKey = removed.source + "-" + removed.destination + "-" + removed.timestamp;
-            pktSet.remove(removedKey);
-            TreeMap<Integer, Integer> map = destMap.get(removed.destination);
-            map.put(removed.timestamp, map.get(removed.timestamp) - 1);
-            if (map.get(removed.timestamp) == 0) {
-                map.remove(removed.timestamp);
+    static String sortVowels(String s) {
+        int n = s.length();
+
+        int[] freq = new int[26];
+        int[] idx = new int[26];
+        Arrays.fill(idx, -1);
+
+        Set<Character> st = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (st.contains(ch)) {
+                freq[ch - 'a']++;
+                if (idx[ch - 'a'] == -1)
+                    idx[ch - 'a'] = i;
             }
         }
 
-        Packet newPacket = new Packet(source, destination, timestamp);
-        q.offer(newPacket);
-        pktSet.add(key);
+        List<Character> vowel = new ArrayList<>();
+        for (char ch : s.toCharArray())
+            if (st.contains(ch))
+                vowel.add(ch);
 
 
-        destMap.putIfAbsent(destination, new TreeMap<>());
-        TreeMap<Integer, Integer> timeMap = destMap.get(destination);
-        timeMap.put(timestamp, timeMap.getOrDefault(timestamp, 0) + 1);
+        Collections.sort(vowel, (a, b) -> {
+            int fa = freq[a - 'a'];
+            int fb = freq[b - 'a'];
 
-        return true;
-    }
+            if (fa != fb) return fb - fa;
+            return idx[a - 'a'] - idx[b - 'a'];
+        });
 
-    public int[] forwardPacket() {
-        if (q.isEmpty()) return new int[0];
+        StringBuilder res = new StringBuilder(s);
+        int j = 0;
 
-        Packet p = q.poll();
-        String key = p.source + "-" + p.destination + "-" + p.timestamp;
-        pktSet.remove(key);
-
-        TreeMap<Integer, Integer> map = destMap.get(p.destination);
-        map.put(p.timestamp, map.get(p.timestamp) - 1);
-        if (map.get(p.timestamp) == 0) {
-            map.remove(p.timestamp);
+        for (int i = 0; i < n; i++) {
+            if (st.contains(s.charAt(i)))
+                res.setCharAt(i, vowel.get(j++));
         }
 
-        return new int[]{p.source, p.destination, p.timestamp};
+
+        return res.toString();
     }
-
-    public int getCount(int destination, int startTime, int endTime) {
-        if (!destMap.containsKey(destination)) return 0;
-
-        TreeMap<Integer, Integer> map = destMap.get(destination);
-        int count = 0;
-
-        for (Map.Entry<Integer, Integer> entry : map.subMap(startTime, true, endTime, true).entrySet()) {
-            count += entry.getValue();
-        }
-
-        return count;
-    }
-
-    private static class Packet {
-        int source;
-        int destination;
-        int timestamp;
-
-        public Packet(int source, int destination, int timestamp) {
-            this.source = source;
-            this.destination = destination;
-            this.timestamp = timestamp;
-        }
-    }
-
 }
