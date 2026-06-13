@@ -2,7 +2,7 @@ package leetcodeContest;
 
 import java.util.*;
 
-public class A {
+public class AQues{
     public static void main(String[] args) {
 //
 
