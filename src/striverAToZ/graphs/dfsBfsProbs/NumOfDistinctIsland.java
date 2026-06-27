@@ -5,27 +5,28 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// Question No. - 12
 public class NumOfDistinctIsland {
     public static void main(String[] args) {
         int[][] grid = {
-                {1, 1, 0, 0},
-                {1, 0, 0, 0},
-                {0, 0, 1, 1},
-                {0, 0, 1, 1}
+                { 1, 1, 0, 0 },
+                { 1, 0, 0, 0 },
+                { 0, 0, 1, 1 },
+                { 0, 0, 1, 1 }
         };
         System.out.println(countDistinctIslands(grid));
     }
 
     private static void dfs(int row, int col, int baseRow, int baseCol,
-                            int[][] grid, boolean[][] vis, List<String> shape) {
+            int[][] grid, boolean[][] vis, List<String> shape) {
         // Mark visited
         vis[row][col] = true;
         // Add relative position
         shape.add((row - baseRow) + "_" + (col - baseCol));
 
         // 4 directions
-        int[] drow = {-1, 0, 1, 0};
-        int[] dcol = {0, 1, 0, -1};
+        int[] drow = { -1, 0, 1, 0 };
+        int[] dcol = { 0, 1, 0, -1 };
 
         // Traverse directions
         for (int i = 0; i < 4; i++) {

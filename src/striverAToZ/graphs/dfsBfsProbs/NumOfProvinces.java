@@ -3,6 +3,7 @@ package striverAToZ.graphs.dfsBfsProbs;
 import java.util.ArrayList;
 import java.util.List;
 
+// Question No. - 01
 public class NumOfProvinces {
     public static void main(String[] args) {
         int[][] adj = {

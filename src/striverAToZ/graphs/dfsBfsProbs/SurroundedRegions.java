@@ -1,13 +1,14 @@
 package striverAToZ.graphs.dfsBfsProbs;
 
+// Question No. - 08
 public class SurroundedRegions {
     public static void main(String[] args) {
         char[][] mat = {
-                {'X', 'X', 'X', 'X'},
-                {'X', 'O', 'X', 'X'},
-                {'X', 'O', 'O', 'X'},
-                {'X', 'O', 'X', 'X'},
-                {'X', 'X', 'O', 'O'}
+                { 'X', 'X', 'X', 'X' },
+                { 'X', 'O', 'X', 'X' },
+                { 'X', 'O', 'O', 'X' },
+                { 'X', 'O', 'X', 'X' },
+                { 'X', 'X', 'O', 'O' }
         };
         // compute result
         char[][] ans = fill(mat.length, mat[0].length, mat);
@@ -23,8 +24,8 @@ public class SurroundedRegions {
     static char[][] fill(int n, int m, char[][] mat) {
         if (n == 0 || m == 0)
             return mat;
-        int[] dr = {-1, 0, 1, 0};
-        int[] dc = {0, 1, 0, -1};
+        int[] dr = { -1, 0, 1, 0 };
+        int[] dc = { 0, 1, 0, -1 };
         int[][] vis = new int[n][m];
         for (int j = 0; j < m; j++) {
             if (vis[0][j] == 0 && mat[0][j] == 'O')
@@ -41,7 +42,8 @@ public class SurroundedRegions {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (vis[i][j] == 0 && mat[i][j] == 'O') mat[i][j] = 'X';
+                if (vis[i][j] == 0 && mat[i][j] == 'O')
+                    mat[i][j] = 'X';
             }
         }
         return mat;
@@ -58,4 +60,3 @@ public class SurroundedRegions {
         }
     }
 }
-

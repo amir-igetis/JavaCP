@@ -2,6 +2,7 @@ package striverAToZ.graphs.dfsBfsProbs;
 
 import java.util.ArrayList;
 
+// Question No. - 14
 public class CycleDetectionDirectedGraphDFS {
     public static void main(String[] args) {
         int V = 11;
@@ -26,7 +27,6 @@ public class CycleDetectionDirectedGraphDFS {
         else
             System.out.println("False");
     }
-
 
     private static boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int[] vis, int[] pathVis) {
         vis[node] = 1;
@@ -57,7 +57,8 @@ public class CycleDetectionDirectedGraphDFS {
 
         for (int i = 0; i < V; i++) {
             if (vis[i] == 0) {
-                if (dfsCheck(i, adj, vis, pathVis)) return true;
+                if (dfsCheck(i, adj, vis, pathVis))
+                    return true;
             }
         }
         return false;

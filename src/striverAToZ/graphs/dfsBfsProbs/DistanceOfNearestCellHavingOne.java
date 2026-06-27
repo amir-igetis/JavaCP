@@ -3,12 +3,13 @@ package striverAToZ.graphs.dfsBfsProbs;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Question No. - 07
 public class DistanceOfNearestCellHavingOne {
     public static void main(String[] args) {
         int[][] grid = {
-                {0, 1, 1, 0},
-                {1, 1, 0, 0},
-                {0, 0, 1, 1}
+                { 0, 1, 1, 0 },
+                { 1, 1, 0, 0 },
+                { 0, 0, 1, 1 }
         };
         int[][] ans = nearest(grid);
 
@@ -21,8 +22,8 @@ public class DistanceOfNearestCellHavingOne {
     }
 
     static int[][] nearest(int[][] grid) {
-        int n = grid.length;       // Number of rows
-        int m = grid[0].length;    // Number of columns
+        int n = grid.length; // Number of rows
+        int m = grid[0].length; // Number of columns
 
         // Visited matrix to track visited cells
         int[][] vis = new int[n][m];
@@ -36,7 +37,7 @@ public class DistanceOfNearestCellHavingOne {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 1) {
-                    q.add(new int[]{i, j, 0}); // {row, col, distance}
+                    q.add(new int[] { i, j, 0 }); // {row, col, distance}
                     vis[i][j] = 1; // Mark as visited
                 } else {
                     vis[i][j] = 0; // Mark unvisited
@@ -45,8 +46,8 @@ public class DistanceOfNearestCellHavingOne {
         }
 
         // Directions: Up, Right, Down, Left
-        int[] delRow = {-1, 0, 1, 0};
-        int[] delCol = {0, 1, 0, -1};
+        int[] delRow = { -1, 0, 1, 0 };
+        int[] delCol = { 0, 1, 0, -1 };
 
         // BFS traversal
         while (!q.isEmpty()) {
@@ -65,7 +66,7 @@ public class DistanceOfNearestCellHavingOne {
                 // Check boundaries and unvisited cells
                 if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && vis[nrow][ncol] == 0) {
                     vis[nrow][ncol] = 1; // Mark as visited
-                    q.add(new int[]{nrow, ncol, steps + 1}); // Push into queue with incremented distance
+                    q.add(new int[] { nrow, ncol, steps + 1 }); // Push into queue with incremented distance
                 }
             }
         }
