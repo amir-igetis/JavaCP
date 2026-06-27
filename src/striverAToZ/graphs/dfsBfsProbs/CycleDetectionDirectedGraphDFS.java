@@ -28,7 +28,7 @@ public class CycleDetectionDirectedGraphDFS {
     }
 
 
-    private static boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[], int pathVis[]) {
+    private static boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int[] vis, int[] pathVis) {
         vis[node] = 1;
         pathVis[node] = 1;
 
@@ -36,7 +36,7 @@ public class CycleDetectionDirectedGraphDFS {
         for (int it : adj.get(node)) {
             // when the node is not visited
             if (vis[it] == 0) {
-                if (dfsCheck(it, adj, vis, pathVis) == true)
+                if (dfsCheck(it, adj, vis, pathVis))
                     return true;
             }
             // if the node has been previously visited
@@ -52,12 +52,12 @@ public class CycleDetectionDirectedGraphDFS {
 
     // Function to detect cycle in a directed graph.
     static boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
-        int vis[] = new int[V];
-        int pathVis[] = new int[V];
+        int[] vis = new int[V];
+        int[] pathVis = new int[V];
 
         for (int i = 0; i < V; i++) {
             if (vis[i] == 0) {
-                if (dfsCheck(i, adj, vis, pathVis) == true) return true;
+                if (dfsCheck(i, adj, vis, pathVis)) return true;
             }
         }
         return false;

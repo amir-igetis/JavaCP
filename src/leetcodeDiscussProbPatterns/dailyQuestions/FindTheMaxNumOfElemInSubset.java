@@ -1,0 +1,40 @@
+package leetcodeDiscussProbPatterns.dailyQuestions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FindTheMaxNumOfElemInSubset {
+    public static void main(String[] args) {
+        int[] nums = {5, 4, 1, 2, 2};
+        System.out.println(maximumLength(nums));
+    }
+
+    // hash table + enumeration O(n log log M)  & O(n)
+    static int maximumLength(int[] nums) {
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (int num : nums) {
+            cnt.merge((long) num, 1, Integer::sum);
+        }
+
+        int oneCnt = cnt.getOrDefault(1L, 0);
+        // ans is at least the number of occurrences of 1, rounded down to an odd number
+        int ans = (oneCnt & 1) == 1 ? oneCnt : oneCnt - 1;
+
+        cnt.remove(1L);
+
+        for (long num : cnt.keySet()) {
+            int res = 0;
+            long x = num;
+
+            while (cnt.containsKey(x) && cnt.get(x) > 1) {
+                res += 2;
+                x *= x;
+            }
+
+            ans = Math.max(ans, res + (cnt.containsKey(x) ? 1 : -1));
+        }
+
+        return ans;
+
+    }
+}

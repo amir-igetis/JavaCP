@@ -1,6 +1,7 @@
 package striverAToZ.graphs.dfsBfsProbs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BipartiteGraph {
     public static void main(String[] args) {
@@ -23,7 +24,7 @@ public class BipartiteGraph {
         else System.out.println("0");
     }
 
-    private static boolean dfs(int node, int col, int color[],
+    private static boolean dfs(int node, int col, int[] color,
                                ArrayList<ArrayList<Integer>> adj) {
 
         color[node] = col;
@@ -32,7 +33,7 @@ public class BipartiteGraph {
         for (int it : adj.get(node)) {
             // if uncoloured
             if (color[it] == -1) {
-                if (dfs(it, 1 - col, color, adj) == false) return false;
+                if (!dfs(it, 1 - col, color, adj)) return false;
             }
             // if previously coloured and have the same colour
             else if (color[it] == col) {
@@ -45,12 +46,12 @@ public class BipartiteGraph {
 
     static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> adj) {
         int[] color = new int[V];
-        for (int i = 0; i < V; i++) color[i] = -1;
+        Arrays.fill(color, -1);
 
         // for connected components
         for (int i = 0; i < V; i++) {
             if (color[i] == -1) {
-                if (dfs(i, 0, color, adj) == false) return false;
+                if (!dfs(i, 0, color, adj)) return false;
             }
         }
         return true;
