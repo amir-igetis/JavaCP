@@ -16,6 +16,7 @@ public class NumOfProvinces {
         int V = 3;
 
         System.out.println(numOfProvinces(adj, V));
+        System.out.println(findCircleNum(adj));
     }
 
     static int numOfProvinces(int[][] adj, int V) {
@@ -48,6 +49,31 @@ public class NumOfProvinces {
         for (int neighbor : adjList.get(node)) {
             if (!vis[neighbor])
                 dfs(neighbor, adjList, vis);
+        }
+    }
+
+    // another solution without making adj List
+    static int findCircleNum(int[][] isConnected) {
+
+        int n = isConnected.length;
+        boolean[] vis = new boolean[n];
+        int provinces = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (!vis[i]) {
+                provinces++;
+                dfsI(i, isConnected, vis);
+            }
+        }
+
+        return provinces;
+    }
+
+    private static void dfsI(int node, int[][] isConnected, boolean[] vis) {
+        vis[node] = true;
+        for (int neighbor = 0; neighbor < isConnected.length; neighbor++) {
+            if (isConnected[node][neighbor] == 1 && !vis[neighbor])
+                dfsI(neighbor, isConnected, vis);
         }
     }
 }
