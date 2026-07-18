@@ -1,4 +1,4 @@
-package striverAToZ.graphs;
+package striverAToZ.graphs.dfsBfsProbs;
 
 import java.util.*;
 
