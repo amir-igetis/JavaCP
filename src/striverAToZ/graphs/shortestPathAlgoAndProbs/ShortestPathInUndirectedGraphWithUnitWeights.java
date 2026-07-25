@@ -41,6 +41,7 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
                 }
             }
         }
+
         for (int i = 0; i < N; i++) {
             if (dist[i] == (int) 1e9 + 7)
                 dist[i] = -1;

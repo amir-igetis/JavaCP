@@ -50,17 +50,16 @@ public class ShortestPathInDag {
                 for (int[] neighbor : adj.get(node)) {
                     int v = neighbor[0];
                     int wt = neighbor[1];
-                    if (dist[node] + wt < dist[v]) {
+                    if (dist[node] + wt < dist[v])
                         dist[v] = dist[node] + wt;
-                    }
                 }
             }
         }
         for (int i = 0; i < N; i++) {
             if (dist[i] == (int) 1e9 + 7)
                 dist[i] = -1;
-
         }
+
         return dist;
     }
 
