@@ -1,9 +1,6 @@
 package striverAToZ.graphs.shortestPathAlgoAndProbs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class PrintShortestPath {
     public static void main(String[] args) {
@@ -60,6 +57,71 @@ public class PrintShortestPath {
         }
         path.add(1);
         Collections.reverse(path);
+        return path;
+    }
+
+    /// another way to do this
+    static List<Integer> shortestPathI(int V, ArrayList<int[]>[] adj, int src, int dest) {
+
+        PriorityQueue<int[]> pq =
+                new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
+
+        int[] dist = new int[V];
+        int[] parent = new int[V];
+
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        for (int i = 0; i < V; i++) {
+            parent[i] = i;
+        }
+
+        dist[src] = 0;
+        pq.offer(new int[]{0, src});
+
+        while (!pq.isEmpty()) {
+
+            int[] curr = pq.poll();
+
+            int dis = curr[0];
+            int node = curr[1];
+
+            // Ignore stale entries
+            if (dis > dist[node])
+                continue;
+
+            for (int[] edge : adj[node]) {
+
+                int adjNode = edge[0];
+                int weight = edge[1];
+
+                if (dis + weight < dist[adjNode]) {
+
+                    dist[adjNode] = dis + weight;
+                    parent[adjNode] = node;
+
+                    pq.offer(new int[]{dist[adjNode], adjNode});
+                }
+            }
+        }
+
+        List<Integer> path = new ArrayList<>();
+
+        if (dist[dest] == Integer.MAX_VALUE) {
+            path.add(-1);
+            return path;
+        }
+
+        int node = dest;
+
+        while (parent[node] != node) {
+            path.add(node);
+            node = parent[node];
+        }
+
+        path.add(src);
+
+        Collections.reverse(path);
+
         return path;
     }
 
