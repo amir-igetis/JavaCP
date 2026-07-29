@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ClimbingStairs {
     public static void main(String[] args) {
-// Number for which Fibonacci is to be calculated
+    // Number for which Fibonacci is to be calculated
         int n = 3;
 
         // Create a dp array initialized with -1
