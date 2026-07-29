@@ -5,6 +5,12 @@ import java.util.List;
 
 // Question No. - 01
 public class NumOfProvinces {
+
+    /// Problem Statement: Given an undirected graph with V vertices.
+    /// Two vertices u and v belong to a single province if there is a path from u to v or v to u.
+    /// Find the number of provinces. The graph is given as an n x n matrix adj where adj(i)(j) = 1
+    /// if the ith city and the jth city are directly connected, and adj(i)(j) = 0 otherwise.
+    /// 
     public static void main(String[] args) {
         int[][] adj = {
                 {1, 0, 1},

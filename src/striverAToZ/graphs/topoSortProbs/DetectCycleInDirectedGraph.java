@@ -3,6 +3,10 @@ package striverAToZ.graphs.topoSortProbs;
 import java.util.*;
 
 public class DetectCycleInDirectedGraph {
+
+    /// Problem Statement: Given a Directed Graph with V vertices and E edges,
+    ///  check whether it contains any cycle or not using BFS.
+
     public static void main(String[] args) {
         int V = 4;
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();

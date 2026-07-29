@@ -6,6 +6,27 @@ import java.util.List;
 import java.util.Queue;
 
 public class CourseSchedule {
+
+    /// Problem Statement I (Course Schedule): There are a total of n tasks you have to pick, labeled from 0 to n-1.
+    /// Some tasks may have prerequisites tasks, for example, to pick task 0 you have to first finish tasks 1,
+    /// which is expressed as a pair: (0, 1)
+    ///
+    /// Given the total number of n tasks and a list of prerequisite pairs of size m.
+    /// Find the order of tasks you should pick to finish all tasks.
+    ///
+    /// Note: There may be multiple correct orders,
+    /// you need to return one of them. If it is impossible to finish all tasks, return an empty array.
+    ///
+    /// Problem Statement II (Pre-requisite Tasks): There are a total of N tasks, labeled from 0 to N-1.
+    /// Some tasks may have prerequisites, for example, to do task 0 you have to first complete task 1,
+    /// which is expressed as a pair: (0, 1)
+    ///
+    /// Given the total number of tasks N and a list of prerequisite pairs P, find if it is possible to finish all tasks.
+    ///
+    /// Note: These two questions are linked. The second question asks if it is possible to finish all the tasks and
+    /// the first question states to return the ordering of the tasks if it is possible to perform all the tasks,
+    /// otherwise return an empty array.
+
     public static void main(String[] args) {
         int numCourses = 2;
         int[][] prerequisites = {{1, 0}, {0, 1}};

@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Queue;
 
 public class AlienDictionary {
+
+    /// Problem Statement: Determine the order of characters in an alien language given a sorted list of words from its dictionary.
+
     public static void main(String[] args) {
         int N = 5, K = 4;
         String[] dict = {"baa", "abcd", "abca", "cab", "cad"};

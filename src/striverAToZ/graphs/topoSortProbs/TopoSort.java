@@ -6,6 +6,16 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class TopoSort {
+
+
+    /// Problem Statement: Given a Directed Acyclic Graph (DAG) with V vertices labeled from 0 to V-1.
+    /// The graph is represented using an adjacency list where adj(i) lists all nodes connected to node.
+    /// Find any Topological Sorting of that Graph.
+    ///
+    /// In topological sorting, node u will always appear before node v if there is a directed
+    /// edge from node u towards node v(u -> v).
+    /// The Output will be True if your topological sort is correct otherwise it will be False.
+
     public static void main(String[] args) {
         int V = 6;
 
