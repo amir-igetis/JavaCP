@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ShortestDistanceInABinaryMaze {
+
+    // question 5
     public static void main(String[] args) {
         int[] source = {0, 1};
         int[] destination = {2, 2};

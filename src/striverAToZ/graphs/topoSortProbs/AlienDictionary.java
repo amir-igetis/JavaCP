@@ -97,4 +97,110 @@ public class AlienDictionary {
         return ans.toString();
     }
 
+
+    /// ans to
+    /// https://www.geeksforgeeks.org/problems/alien-dictionary/1
+    static String findOrderI(String[] words) {
+
+        // Graph of 26 lowercase letters
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < 26; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        boolean[] present = new boolean[26];
+        int presentCount = 0;
+
+        // Mark all characters that appear
+        for (String word : words) {
+            for (char ch : word.toCharArray()) {
+                if (!present[ch - 'a']) {
+                    present[ch - 'a'] = true;
+                    presentCount++;
+                }
+            }
+        }
+
+        // Build graph
+        for (int i = 0; i < words.length - 1; i++) {
+
+            String s1 = words[i];
+            String s2 = words[i + 1];
+
+            int len = Math.min(s1.length(), s2.length());
+
+            boolean found = false;
+
+            for (int j = 0; j < len; j++) {
+
+                if (s1.charAt(j) != s2.charAt(j)) {
+
+                    int u = s1.charAt(j) - 'a';
+                    int v = s2.charAt(j) - 'a';
+
+                    adj.get(u).add(v);
+                    found = true;
+                    break;
+                }
+            }
+
+            // Invalid case: longer word comes before its prefix
+            if (!found && s1.length() > s2.length()) {
+                return "";
+            }
+        }
+
+        ArrayList<Integer> topo = topoSortI(adj, present);
+
+        // Cycle detected
+        if (topo.size() != presentCount) {
+            return "";
+        }
+
+        StringBuilder ans = new StringBuilder();
+
+        for (int node : topo) {
+            ans.append((char) (node + 'a'));
+        }
+
+        return ans.toString();
+    }
+
+    private static ArrayList<Integer> topoSortI(ArrayList<ArrayList<Integer>> adj,
+                                                boolean[] present) {
+
+        int[] indegree = new int[26];
+
+        for (int i = 0; i < 26; i++) {
+            for (int it : adj.get(i)) {
+                indegree[it]++;
+            }
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+
+        for (int i = 0; i < 26; i++) {
+            if (present[i] && indegree[i] == 0) {
+                q.offer(i);
+            }
+        }
+
+        ArrayList<Integer> topo = new ArrayList<>();
+
+        while (!q.isEmpty()) {
+
+            int node = q.poll();
+            topo.add(node);
+
+            for (int it : adj.get(node)) {
+                indegree[it]--;
+
+                if (indegree[it] == 0) {
+                    q.offer(it);
+                }
+            }
+        }
+
+        return topo;
+    }
 }

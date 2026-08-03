@@ -18,6 +18,7 @@ public class CheckIfThereIsAValidPathInAGrid {
             {{0, -1}, {-1, 0}},  // 5: left, up
             {{0, 1}, {-1, 0}}    // 6: right, up
     };
+   
 
     public static boolean hasValidPath(int[][] grid) {
         int m = grid.length, n = grid[0].length;
