@@ -6,7 +6,15 @@ import java.util.Queue;
 
 public class ShortestDistanceInABinaryMaze {
 
-    // question 5
+    /// Question 5,
+    /// Problem Statement: Given an n * m matrix grid where each element can either be 0 or 1. You need to find
+    /// the shortest distance between a given source cell to a destination cell. The path can only be created out
+    /// of a cell if its value is 1.
+    /// If the path is not possible between the source cell and the destination cell, then return -1.
+    ///
+    /// Note: You can move into an adjacent cell if that adjacent cell is filled with element 1. Two cells are
+    /// adjacent if they share a side. In other words, you can move in one of four directions, Up, Down, Left, and Right.
+
     public static void main(String[] args) {
         int[] source = {0, 1};
         int[] destination = {2, 2};
@@ -22,7 +30,11 @@ public class ShortestDistanceInABinaryMaze {
         System.out.println(shortestPath(grid, source, destination));
     }
 
-    // tc O(4 * N * M) sc O(N * M)
+    /// Time Complexity: O(4 * N * M), where N * M are the total cells, and for each cell, we check 4 adjacent
+    /// nodes for the shortest path length. Where N = No. of rows of the binary maze and M = No. of columns of the binary maze.
+    ///
+    /// Space Complexity: O(N * M), where N = No. of rows of the binary maze and M = No. of columns of the binary maze.
+
     static int shortestPath(int[][] grid, int[] source, int[] destination) {
         // Edge Case: if the source is the same as the destination
         if (source[0] == destination[0] && source[1] == destination[1])

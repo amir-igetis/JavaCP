@@ -5,6 +5,15 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class PathWithMinEffort {
+
+    /// Question 6,
+    /// Problem Statement: You are a hiker preparing for an upcoming hike. You are given heights, a 2D array of
+    /// size rows x columns, where heights(row)(col) represents the height of the cell (row, col). You are situated
+    /// in the top-left cell, (0, 0), and you hope to travel to the bottom-right cell, (rows-1, columns-1) (i.e.,0-indexed).
+    /// You can move up, down, left, or right, and you wish to find a route that requires the minimum effort.
+    ///
+    /// A route's effort is the maximum absolute difference in heights between two consecutive cells of the route.
+
     public static void main(String[] args) {
         int[][] heights = {
                 {1, 2, 2},
@@ -14,7 +23,14 @@ public class PathWithMinEffort {
         System.out.println(minimumEffort(heights));
     }
 
-    // tc  O(4 * N * M * log(N * M)) sc O(n * M)
+    /// Time Complexity: O(4 * N * M * log(N * M)), where N * M are the total cells, for each of which we check 4
+    /// adjacent nodes for the minimum effort and an additional log(N * M) for insertion-deletion operations in a
+    /// priority queue. Where N = No. of rows of the binary maze and M = No. of columns of the binary maze.
+    ///
+    /// Space Complexity: O(N * M), where N * M is the distance matrix containing N * M cells, plus the priority
+    /// queue in the worst case containing all the nodes (N * M). Where N = No. of rows of the binary maze and
+    /// M = No. of columns of the binary maze.
+
     static int minimumEffort(int[][] heights) {
 
         // Create a priority queue to store the cells and their respective distance from the source

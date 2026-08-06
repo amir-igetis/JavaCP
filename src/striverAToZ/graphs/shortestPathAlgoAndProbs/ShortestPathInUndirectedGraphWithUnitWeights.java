@@ -3,6 +3,13 @@ package striverAToZ.graphs.shortestPathAlgoAndProbs;
 import java.util.*;
 
 public class ShortestPathInUndirectedGraphWithUnitWeights {
+
+    /// Question 1
+    ///
+    /// Problem Statement: Given an Undirected Graph having unit weight, find the shortest path from the source to
+    /// all other nodes in this graph. In this problem statement, we have assumed the source vertex to be ‘0’.
+    /// If a vertex is unreachable from the source node, then return -1 for that vertex.
+
     public static void main(String[] args) {
         int N = 9, M = 10;
         int[][] edges = {
@@ -15,7 +22,12 @@ public class ShortestPathInUndirectedGraphWithUnitWeights {
         System.out.println();
     }
 
-    // bfs O(M) sc O(N)
+    /// Time Complexity: O(M) { for creating the adjacency list from given list ‘edges’} + O(N + 2M) { for the BFS Algorithm} + O(N) {
+    /// for adding the final values of the shortest path in the resultant array} ~ O(N+2M). Where N= number of vertices and M= number of edges.
+    ///
+    /// Space Complexity:  O(N) {for the stack storing the BFS} + O(N) {for the resultant array} + O(N) {for the dist
+    /// array storing updated shortest paths} + O( N+2M) {for the adjacency list} ~ O(N+M),Where N= number of vertices and M= number of edges.
+
     static int[] shortestPath(int[][] edges, int N, int M, int src) {
         List<List<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < N; i++)

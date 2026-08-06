@@ -3,6 +3,13 @@ package striverAToZ.graphs.shortestPathAlgoAndProbs;
 import java.util.*;
 
 public class CheapestFlightWithinKStops {
+
+    /// Question 7
+    /// Problem Statement: There are n cities and m edges connected by some number of flights. You are given an
+    /// array of flights where flights(i) = ( fromi, toi, pricei) indicates that there is a flight from city fromi to
+    /// city toi with cost price. You have also given three integers src, dst, and k, and return the cheapest price
+    /// from src to dst with at most k stops. If there is no such route, return -1.
+
     public static void main(String[] args) {
 // Driver Code
         int n = 4, src = 0, dst = 3, K = 1;
@@ -18,6 +25,12 @@ public class CheapestFlightWithinKStops {
         // Output the result
         System.out.println(ans);
     }
+
+    /// Time Complexity: O(N), where the additional log(N) time is eliminated by using a simple queue rather than a
+    /// priority queue, which is usually used in Dijkstra’s Algorithm. Where N = Number of flights / Number of edges.
+    ///
+    /// Space Complexity: O(|E| + |V|), for the adjacency list, priority queue, and the dist array. Where
+    /// E = Number of edges (flights.size()) and V = Number of airports.
 
     // this is the modified code for the dijkstra algo
     static int cheapestFLight(int n, int[][] flights, int src, int dst, int K) {

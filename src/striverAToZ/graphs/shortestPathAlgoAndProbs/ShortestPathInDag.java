@@ -6,6 +6,13 @@ import java.util.List;
 import java.util.Stack;
 
 public class ShortestPathInDag {
+
+    /// Question 2
+    /// Problem Statement: Given a Directed Acyclic Graph of N vertices from 0 to N-1 and M edges and a 2D Integer
+    /// array edges, where there is a directed edge from vertex edge[i][0] to vertex edge[i][1] with a distance of edge[i][2] for all i.
+    /// Find the shortest path from source vertex to all the vertices and if it is impossible to reach any vertex,
+    /// then return -1 for that vertex. The source vertex is assumed to be 0.
+
     public static void main(String[] args) {
         int N = 6, M = 7;
 
@@ -21,7 +28,12 @@ public class ShortestPathInDag {
         System.out.println();
     }
 
-    // using topo sort tc O(N+M) sc O(N)
+    /// Time Complexity: O(N+M) {for the topological sort} + O(N+M) {for relaxation of vertices, each node and its
+    /// adjacent nodes get traversed} ~ O(N+M),where N= number of vertices and M= number of edges.
+    ///
+    /// Space Complexity:  O(N) {for the stack storing the topological sort} + O(N) {for storing the shortest
+    /// distance for each node} + O(N) {for the visited array} + O( N+2M) {for the adjacency list} ~ O(N+M) .
+
     static int[] shortestPath(int N, int M, int[][] edges) {
         List<List<int[]>> adj = new ArrayList<>();
         for (int i = 0; i < N; i++)

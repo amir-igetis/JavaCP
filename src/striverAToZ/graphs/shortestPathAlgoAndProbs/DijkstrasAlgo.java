@@ -3,6 +3,17 @@ package striverAToZ.graphs.shortestPathAlgoAndProbs;
 import java.util.*;
 
 public class DijkstrasAlgo {
+
+
+    /// Question 3 and 4
+    /// Problem Statement: Given a weighted, undirected, and connected graph of V vertices and an adjacency list adj
+    /// where adj(i) is a list of lists containing two integers where the first integer of each list j denotes there is
+    /// an edge between i and j, second integers corresponds to the weight of that edge. You are given the source
+    /// vertex S and You have to Find the shortest distance of all the vertex from the source vertex S. You have to
+    /// return a list of integers denoting the shortest distance between each node and Source vertex S.
+    ///
+    /// Note: The Graph doesn’t contain any negative weight cycle
+
     public static void main(String[] args) {
         int V = 3, E = 3, S = 2;
 
@@ -28,7 +39,10 @@ public class DijkstrasAlgo {
     }
 
 
-    ///  tc O(E log V) and sc O(V + E)
+    /// Time Complexity: O(E log V), as each edge leads to at most one insertion in the priority queue, which takes log V time.
+    ///
+    /// Space Complexity: O(V + E), due to the distance array and adjacency list storing all vertices and edges.
+
     static int[] dijkstra(int V, ArrayList<int[]>[] adj, int S) {
 
         ///  min heap the smallest value always on the top
