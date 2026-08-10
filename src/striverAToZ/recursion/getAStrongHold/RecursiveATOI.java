@@ -27,7 +27,8 @@ public class RecursiveATOI {
         int i = 0;
 
         // Skip whitespaces
-        while (i < s.length() && s.charAt(i) == ' ') i++;
+        while (i < s.length() && s.charAt(i) == ' ')
+            i++;
 
         // Handle sign
         int sign = 1;
@@ -56,6 +57,4 @@ public class RecursiveATOI {
         // Recurse
         return helper(s, i + 1, num, sign);
     }
-
-
 }
