@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class NextGreaterElem {
 
+    /// Question 1
     /// Problem Statement: Given an integer array A, return the next greater element for every element in A. The next greater element for an element x is the first element greater than x that we come across while traversing the array in a clockwise manner. If it doesn't exist, return -1 for this element.
 
     public static void main(String[] args) {

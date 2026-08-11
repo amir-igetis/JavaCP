@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class AreaOfLargestRectangleInHistogram {
 
+    /// Question 10
     /// Problem Statement: Given an array of integers heights representing the histogram's bar height where the width of each bar is 1 return the area of the largest rectangle in histogram.
     public static void main(String[] args) {
         int[] arr = {2, 1, 5, 6, 2, 3, 1};

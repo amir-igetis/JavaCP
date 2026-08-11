@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class SumOfSubArrMinimums {
 
+    /// Question 6
     /// Problem Statement: Given an array of integers arr of size n, calculate the sum of the minimum value in each (contiguous) subarray of arr. Since the result may be large, return the answer modulo 10⁹ +7.
     public static void main(String[] args) {
         int[] arr = {3, 1, 2, 5};

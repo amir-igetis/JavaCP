@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class RemoveKDigits {
 
+    /// Question 9
     /// Problem Statement: Given a string nums representing a non-negative integer, and an integer k, find the smallest possible integer after removing k digits from num.
     public static void main(String[] args) {
         String nums = "541892"; // Input number as string

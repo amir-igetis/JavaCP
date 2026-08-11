@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public class NextSmallerElem {
 
+    /// Question 3
     /// Problem Statement: Given an array of integers arr, your task is to find the Next Smaller Element (NSE) for every element in the array.
     /// The Next Smaller Element for an element x is defined as the first element to the right of x that is smaller than x.
     /// If there is no smaller element to the right, then the NSE is -1.

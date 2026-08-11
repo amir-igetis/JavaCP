@@ -2,6 +2,7 @@ package striverAToZ.stacksAndQueues.monotonicStack;
 
 public class TrappingRainWater {
 
+    /// Question 5
     /// Problem Statement: Given an array of non-negative integers representation elevation of ground. Your task is to find the water that can be trapped after rain .
     public static void main(String[] args) {
         // Input elevation map

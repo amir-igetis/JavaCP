@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public class MaxRectangleAreaWithAllOnes {
 
+    /// Question 11
     /// Problem Statement: Given a m x n binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
 
 

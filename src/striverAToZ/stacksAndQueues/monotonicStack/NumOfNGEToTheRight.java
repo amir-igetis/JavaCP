@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public class NumOfNGEToTheRight {
 
+    /// Question 4
     /// Problem Statement: Given an array arr of size n containing elements, find the next greater element for each element in the array in the order of their appearance.
     ///
     /// The next greater element of an element in the array is the nearest element on the right that is greater than the current element.

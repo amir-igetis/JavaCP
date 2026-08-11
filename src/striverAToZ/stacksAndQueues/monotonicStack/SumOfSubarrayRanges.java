@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class SumOfSubarrayRanges {
 
+    /// Question 8
     /// Problem Statement: Given an integer array nums, determine the range of a subarray, defined as the difference between the largest and smallest elements within the subarray. Calculate and return the sum of all subarray ranges of nums.
     ///
     /// A subarray is defined as a contiguous, non-empty sequence of elements within the array.
