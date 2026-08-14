@@ -22,7 +22,7 @@ public class NextGreaterElemII {
         }
     }
 
-    /// Time Complexity: O(N2), since we are using two nested for loops to find the next greater elements.
+    /// Time Complexity: O(N^2), since we are using two nested for loops to find the next greater elements.
     ///
     /// Space Complexity: O(N), The space required to store the answer is O(N).
     static int[] nextGreaterElements(int[] arr) {
@@ -53,6 +53,12 @@ public class NextGreaterElemII {
     /// Time Complexity: O(N), since traversing on the array takes O(N) time and traversing the stack will take overall O(N) time as all the elements are pushed in the stack once.
     ///
     /// Space Complexity: O(N), since the answer array takes O(N) space and the space used by stack will be O(N) in the worst case.
+    ///
+    /// solution to
+    /// https://leetcode.com/problems/next-greater-element-ii/description/
+    ///
+    /// solution to
+    /// https://www.geeksforgeeks.org/problems/next-greater-element/1
     static int[] nextGreaterElementsI(int[] arr) {
         int n = arr.length;
 

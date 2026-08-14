@@ -1,6 +1,6 @@
 package striverAToZ.stacksAndQueues.monotonicStack;
 
-import java.util.Stack;
+import java.util.*;
 
 public class NextGreaterElem {
 
@@ -50,4 +50,47 @@ public class NextGreaterElem {
         // Return the result
         return res;
     }
+
+    /// solution to
+    /// https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1
+    static ArrayList<Integer> nextLargerElement(int[] arr) {
+        // code here
+        Stack<Integer> st = new Stack<>();
+        int n = arr.length;
+        // int[] res = new int[n];
+        ArrayList<Integer> res = new ArrayList<>();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.isEmpty() && st.peek() <= arr[i])
+                st.pop();
+
+            if (st.isEmpty())
+                res.add(-1);
+            else res.add(st.peek());
+
+            st.push(arr[i]);
+        }
+
+        Collections.reverse(res);
+        return res;
+    }
+
+    /// solution to
+    /// https://leetcode.com/problems/next-greater-element-i/description/
+    static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> nextGreat = new HashMap<>();
+        Stack<Integer> st = new Stack<>();
+        for (Integer num : nums2) {
+            while (!st.isEmpty() && st.peek() < num)
+                nextGreat.put(st.pop(), num);
+
+            st.push(num);
+        }
+
+        for (int i = 0; i < nums1.length; i++)
+            nums1[i] = nextGreat.getOrDefault(nums1[i], -1);
+
+        return nums1;
+    }
+
+
 }
