@@ -91,7 +91,8 @@ public class BinarySubarrayWithSum {
     // Helper method to count subarrays with sum at most k
     private static int atMost(int[] nums, int k) {
         // No valid subarray for negative sum
-        if (k < 0) return 0;
+        if (k < 0)
+            return 0;
 
         int left = 0;
         int sum = 0;

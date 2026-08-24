@@ -6,6 +6,7 @@ import java.util.Map;
 public class LongestSubstrWithAtMostKDistinctChars {
 
     /// Question 1
+    ///
     /// Problem Statement: Given a string s and an integer k.Find the length of the longest substring with at most k distinct characters
     public static void main(String[] args) {
         String s = "eceba";
@@ -35,7 +36,8 @@ public class LongestSubstrWithAtMostKDistinctChars {
                 freq.put(s.charAt(j), freq.getOrDefault(s.charAt(j), 0) + 1);
 
                 // If distinct chars exceed k, stop expanding
-                if (freq.size() > k) break;
+                if (freq.size() > k)
+                    break;
 
                 // Update maxLength
                 maxLength = Math.max(maxLength, j - i + 1);
@@ -53,7 +55,7 @@ public class LongestSubstrWithAtMostKDistinctChars {
     /// Space Complexity: O(k) ,We store at most k characters in the frequency map at any given time, so space used is proportional to k.
     static int lengthOfLongestSubstringKDistinctI(String s, int k) {
         // Edge case
-        if (k == 0 || s.length() == 0) return 0;
+        if (k == 0 || s.isEmpty()) return 0;
 
         // Frequency map to track characters
         Map<Character, Integer> freq = new HashMap<>();

@@ -11,6 +11,8 @@ public class MaxConsecutiveOnesIII {
 
         // Output the result
         System.out.println(longestOnes(nums, k));
+        System.out.println(longestOnesI(nums, k));
+        System.out.println(longestOnesII(nums, k));
     }
 
     // brute force

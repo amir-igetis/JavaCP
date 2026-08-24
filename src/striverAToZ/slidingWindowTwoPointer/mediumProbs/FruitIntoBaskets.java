@@ -6,7 +6,8 @@ import java.util.Map;
 public class FruitIntoBaskets {
 
     /// Question 3
-    /// Problem Statement: There is only one row of fruit trees on the farm, oriented left to right. An integer array called fruits represents the trees, where fruits[i] denotes the kind of fruit produced by the ith tree.
+    ///
+    /// Problem Statement: There is only one row of fruit trees on the farm, oriented left to right. An integer array called fruits represents the trees, where fruits(i) denotes the kind of fruit produced by the ith tree.
     /// The goal is to gather as much fruit as possible, adhering to the owner's stringent rules :
     ///
     /// There are two baskets available, and each basket can only contain one kind of fruit. The quantity of fruit each basket can contain is unlimited.
@@ -17,6 +18,8 @@ public class FruitIntoBaskets {
     public static void main(String[] args) {
         int[] fruits = {1, 2, 1};
         System.out.println(totalFruit(fruits)); // Output: 3
+        System.out.println(totalFruitI(fruits));
+        System.out.println(totalFruitII(fruits));
     }
 
     // brute
@@ -62,7 +65,6 @@ public class FruitIntoBaskets {
     }
 
     // better
-
     /// Time Complexity: O(n), where n is the length of the input array. The sliding window expands and contracts over the array. Each element is processed at most twice, once when the right pointer includes it in the window and possibly again when the left pointer removes it. Hence, the overall traversal is linear in time.
     ///
     /// Space Complexity: O(1), constant auxiliary space. Although we use a hash map to keep track of the count of fruit types in the current window, it holds at most two keys (since we’re allowed only two types of fruits). Therefore, the space usage remains constant and does not scale with input size.
@@ -97,8 +99,8 @@ public class FruitIntoBaskets {
         // Return the final result
         return maxFruits;
     }
-// optimal
 
+    // optimal
     /// Time Complexity: O(n), where n is the total number of elements in the input array.
     ///
     /// Space Complexity: O(1), constant auxiliary space. Only a fixed number of integer variables are maintained.

@@ -3,6 +3,7 @@ package striverAToZ.slidingWindowTwoPointer.mediumProbs;
 public class NumOfSubstrContainingAllThreeChars {
 
     /// Question 7
+    ///
     /// Problem Statement: Given a string s , consisting only of characters 'a' , 'b' , 'c'.Find the number of substrings that contain at least one occurrence of all these characters 'a' , 'b' , 'c'.
     public static void main(String[] args) {
         String s = "abcabc";

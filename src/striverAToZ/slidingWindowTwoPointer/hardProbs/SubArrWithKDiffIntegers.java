@@ -6,6 +6,7 @@ import java.util.Map;
 public class SubArrWithKDiffIntegers {
 
     /// Question 2
+    ///
     /// Problem Statement: You are given an integer array nums and an integer k. Return the number of good subarrays of nums.
     ///
     /// A good subarray is defined as a contiguous subarray of nums that contains exactly k distinct integers. A subarray is a contiguous part of the array.

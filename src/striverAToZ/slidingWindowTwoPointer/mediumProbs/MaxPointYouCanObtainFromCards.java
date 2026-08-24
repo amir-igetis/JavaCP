@@ -3,6 +3,7 @@ package striverAToZ.slidingWindowTwoPointer.mediumProbs;
 public class MaxPointYouCanObtainFromCards {
 
     /// Question 8
+    ///
     /// Problem Statement: Given N cards arranged in a row, each card has an associated score denoted by the cardScore array. Choose exactly k cards. In each step, a card can be chosen either from the beginning or the end of the row. The score is the sum of the scores of the chosen cards.
     public static void main(String[] args) {
         int[] cards = {1, 2, 3, 4, 5, 6, 1};

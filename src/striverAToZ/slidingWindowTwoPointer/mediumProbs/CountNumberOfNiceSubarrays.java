@@ -6,17 +6,20 @@ import java.util.Map;
 public class CountNumberOfNiceSubarrays {
 
     /// Question 6
+    ///
     /// Problem Statement: Given an array nums and an integer k. An array is called nice if and only if it contains k odd numbers. Find the number of nice subarrays in the given array nums. A subarray is continuous part of the array.
     public static void main(String[] args) {
         int[] nums = {1, 1, 2, 1, 1};
         int k = 3;
         System.out.println(numberOfSubarrays(nums, k));
+        System.out.println(numberOfSubarraysI(nums, k));
+        System.out.println(numberOfSubarraysII(nums, k));
 
     }
 
     // brute
 
-    /// Time Complexity: O(N2) ,We use two nested loops to check all possible subarrays. For each subarray, we count the number of odd elements. The outer loop runs from index 0 to N-1, and the inner loop also runs up to N in the worst case. So total iterations can be approximately N * N = O(N2).
+    /// Time Complexity: O(N^2) ,We use two nested loops to check all possible subarrays. For each subarray, we count the number of odd elements. The outer loop runs from index 0 to N-1, and the inner loop also runs up to N in the worst case. So total iterations can be approximately N * N = O(N2).
     ///
     /// Space Complexity: O(1), No extra space used.
     static int numberOfSubarrays(int[] nums, int k) {
@@ -71,7 +74,8 @@ public class CountNumberOfNiceSubarrays {
         for (int num : nums) {
 
             // Check if number is odd
-            if (num % 2 == 1) oddCount++;
+            if (num % 2 == 1)
+                oddCount++;
 
             // Check if there's a prefix with (oddCount - k)
             if (freq.containsKey(oddCount - k)) {
