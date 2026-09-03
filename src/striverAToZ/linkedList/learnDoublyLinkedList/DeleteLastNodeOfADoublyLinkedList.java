@@ -2,6 +2,8 @@ package striverAToZ.linkedList.learnDoublyLinkedList;
 
 public class DeleteLastNodeOfADoublyLinkedList {
 
+	/// Question 2
+	/// 
 	/// Problem Statement: Given a Doubly Linked List, delete the last node of the
 	/// Doubly Linked List.
 
