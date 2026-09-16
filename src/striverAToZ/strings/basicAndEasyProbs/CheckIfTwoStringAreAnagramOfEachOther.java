@@ -1,5 +1,7 @@
 package striverAToZ.strings.basicAndEasyProbs;
 
+import java.util.Arrays;
+
 public class CheckIfTwoStringAreAnagramOfEachOther {
     /// Question 7
     ///
@@ -31,8 +33,8 @@ public class CheckIfTwoStringAreAnagramOfEachOther {
         // Convert strings to char arrays and sort them
         char[] charArray1 = str1.toCharArray();
         char[] charArray2 = str2.toCharArray();
-        java.util.Arrays.sort(charArray1);
-        java.util.Arrays.sort(charArray2);
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
 
         // Case 2: check if every character of str1 and str2 matches with each other
         for (int i = 0; i < str1.length(); i++) {

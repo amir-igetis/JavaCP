@@ -2,7 +2,7 @@ package striverAToZ.strings.mediumStringProbs;
 
 public class LongestPalindromicSubstring {
 
-    ///
+    /// Problem 1
     public static void main(String[] args) {
         String s = "babad";
         System.out.println(longestPalindromeII(s));

@@ -33,7 +33,7 @@ public class ReverseWordsInAString {
                 word.append(s.charAt(i));
             }
             // If space and a word is formed
-            else if (word.length() > 0) {
+            else if (!word.isEmpty()) {
                 // Add word to list
                 words.add(word.toString());
                 // Reset word
@@ -42,7 +42,7 @@ public class ReverseWordsInAString {
         }
 
         // Add the last word if present
-        if (word.length() > 0) {
+        if (!word.isEmpty()) {
             words.add(word.toString());
         }
 
@@ -87,7 +87,7 @@ public class ReverseWordsInAString {
             String word = s.substring(i + 1, end + 1);
 
             // Add space before appending if result is not empty
-            if (result.length() > 0) {
+            if (!result.isEmpty()) {
                 result.append(" ");
             }
 

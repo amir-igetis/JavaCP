@@ -3,6 +3,7 @@ package striverAToZ.strings.basicAndEasyProbs;
 public class LatestOddNumInAString {
 
     ///  Question 3
+    ///
     /// Problem Statement: Given a string s, representing a large integer, the task is to return the largest-valued odd integer (as a string) that is a substring of the given string s.
     /// The number returned should not have leading zero's. But the given input string may have leading zero.
     public static void main(String[] args) {
@@ -19,13 +20,20 @@ public class LatestOddNumInAString {
         int ind = -1;
 
         // Find the last odd digit in the string
-        int i;
-        for (i = s.length() - 1; i >= 0; i--) {
+        int i = s.length() - 1;
+        while (i >= 0) {
             if ((s.charAt(i) - '0') % 2 == 1) {
                 ind = i;
                 break;
             }
+            i--;
         }
+//        for (i = s.length() - 1; i >= 0; i--) {
+//            if ((s.charAt(i) - '0') % 2 == 1) {
+//                ind = i;
+//                break;
+//            }
+//        }
 
         // Return empty string if no odd digit was found
         if (ind == -1) return "";
