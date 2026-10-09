@@ -53,17 +53,14 @@ public class MaxNestingDepthOfTheParentheses {
     static int maxDepthI(String s) {
         int ans = 0;
         int openBrackets = 0;
-
         for (Character c : s.toCharArray()) {
             if (c == '(') {
                 openBrackets++;
             } else if (c == ')') {
                 openBrackets--;
             }
-
             ans = Math.max(ans, openBrackets);
         }
-
         return ans;
     }
 }
