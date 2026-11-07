@@ -8,6 +8,11 @@ public class ValidParentChecker {
         System.out.println(ispar(x));
     }
 
+    /// Given a string s, composed of different combinations of '(' , ')', '{', '}', '[', ']'. Determine whether the Expression is balanced or not.
+    /// An expression is balanced if:
+    ///
+    /// Each opening bracket has a corresponding closing bracket of the same type.
+    /// Opening brackets must be closed in the correct order.
     // soln for
     // https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=parenthesis-checker
     static boolean ispar(String x) {
@@ -40,7 +45,7 @@ public class ValidParentChecker {
             x = x.replace("{}", "");
             x = x.replace("[]", "");
         }
-        if (x.length() > 0) {
+        if (!x.isEmpty()) {
             return false;
         } else {
             return true;

@@ -5,9 +5,18 @@ import java.util.Comparator;
 
 public class FractionalKnapsack {
     public static void main(String[] args) {
+        int n = 3, weight = 50; // Number of items and capacity of knapsack
+        // Corrected Java object array initialization
+        Item[] arr = {
+                new Item(100, 20),
+                new Item(60, 10),
+                new Item(120, 30)
+        };
 
+        System.out.println(fracKnapsack(weight, arr, n));
     }
 
+    ///  Question 3
     static double fracKnapsack(int W, Item[] arr, int n) {
         Arrays.sort(arr, new itemComparator());
         int curWeight = 0;
@@ -23,6 +32,31 @@ public class FractionalKnapsack {
             }
         }
         return finalValue;
+    }
+
+    // striver code
+    private static class itemComparator implements Comparator<Item> {
+        @Override
+        public int compare(Item a, Item b) {
+            double r1 = (double) (a.value) / (double) (a.weight);
+            double r2 = (double) (b.value) / (double) (b.weight);
+            if (r1 < r2) {
+                return 1;
+            } else if (r1 > r2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    private static class Item {
+        int value, weight;
+
+        Item(int x, int y) {
+            this.value = x;
+            this.weight = y;
+        }
     }
 
     // soln for https://practice.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=fractional-knapsack
@@ -55,30 +89,5 @@ public class FractionalKnapsack {
             }
         }
         return maxKnapsackVal;
-    }
-
-    // striver code
-    private static class itemComparator implements Comparator<Item> {
-        @Override
-        public int compare(Item a, Item b) {
-            double r1 = (double) (a.value) / (double) (a.weight);
-            double r2 = (double) (b.value) / (double) (b.weight);
-            if (r1 < r2) {
-                return 1;
-            } else if (r1 > r2) {
-                return -1;
-            } else {
-                return 0;
-            }
-        }
-    }
-
-    private static class Item {
-        int value, weight;
-
-        Item(int x, int y) {
-            this.value = x;
-            this.weight = y;
-        }
     }
 }

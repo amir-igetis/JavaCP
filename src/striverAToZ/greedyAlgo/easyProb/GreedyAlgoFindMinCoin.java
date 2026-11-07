@@ -10,6 +10,10 @@ public class GreedyAlgoFindMinCoin {
         System.out.println(minPartition(N));
     }
 
+
+    /// Class Solution
+    ///
+    /// Given an integer n representing a target value and an infinite supply of coins of denominations 1, 2, 5, and 10, find the minimum number of coins required to make the value n
     // soln for https://practice.geeksforgeeks.org/problems/-minimum-number-of-coins4426/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=minimum-number-of-coins
     // Greedy approach
     static List<Integer> minPartition(int N) {

@@ -6,6 +6,9 @@ import java.util.List;
 
 public class MergeOverlappingSubIntervals {
     public static void main(String[] args) {
+
+        /// Question 7
+
         int[][] intervals = {
                 {1, 3}, {2, 6}, {8, 10}, {15, 18}
         };

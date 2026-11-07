@@ -8,6 +8,7 @@ public class ShortestJobFirst {
         System.out.println(calculateAverageWaitTime(jobs));
     }
 
+    /// Question 2
     // tc O(nlog n + n) & sc O(1)
     static float calculateAverageWaitTime(int[] jobs) {
         Arrays.sort(jobs);

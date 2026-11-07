@@ -6,6 +6,9 @@ import java.util.List;
 
 public class InsertIntervals {
     public static void main(String[] args) {
+
+        /// Question 6
+
         int N = 3;
         int[][] intervals = {{1, 3}, {10, 15}, {20, 30}};
         int[] newEvent = {5, 6};
